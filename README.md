@@ -4,8 +4,8 @@ Web application built using domain driven design principles to act as API Gatewa
 
 ## objectives
 
-Setup a dockerized dev environment with hot reloading support for Golang and a Postgres DB with scripts
-Serve static files and handle RESTful API requests for Authoring, Transformation and Search services.
+- Setup a dockerized dev environment with hot reloading support for Golang and a Postgres DB with scripts
+- Serve static files and handle RESTful API requests for Authoring, Transformation and Search services.
 
 **Background** 
 
