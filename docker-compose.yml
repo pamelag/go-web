@@ -1,0 +1,50 @@
+version: '3.2'
+
+services:
+  db:
+    build:
+      context: ./db
+      dockerfile: Dockerfile.dev
+    restart: always
+    environment:
+      - POSTGRES_DB=rightprism
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./var/lib/postgresql/data
+    networks:
+      dnet:
+        ipv4_address: 162.28.1.2
+
+  web:
+    build:
+      context: ./web
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./web:/web
+      - $GOPATH/pkg/mod/cache:/go/pkg/mod/cache
+    working_dir: /web
+    environment:
+      - RP_ENV=dev
+      - DB_NAME=rightprism
+      - DB_USER=postgres
+      - DB_PASS=postgres
+      - DB_HOST=162.28.1.2
+      - DB_PORT=5432
+    ports:
+      - '8080:8080'
+    networks:
+      dnet:
+        ipv4_address: 162.28.1.1
+    depends_on:
+      - db
+
+networks:
+  dnet:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 162.28.0.0/16
