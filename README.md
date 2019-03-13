@@ -1,6 +1,6 @@
 # Web application
 
-Dockarized web development environment for Go based API gateway designed on domain driven principles with postgres container and scripts
+Dockerized development environment for Go based API gateway (designed on domain driven principles) with Postgres container and scripts
 
 ## objectives
 
