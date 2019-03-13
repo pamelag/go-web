@@ -1,10 +1,11 @@
-# webapp
+# Web application
 
-Web application built using domain driven design principles to act as API Gateway and also serve static files
+Dockarized web development environment for Go based API gateway designed on domain driven principles with postgres container and scripts
 
 ## objectives
 
-- Setup a dockerized dev environment with hot reloading support for Golang and a Postgres DB with scripts
+- Setup a dockerized dev environment with hot reloading support for Golang 
+- Setup Postgres container and initialize it with scripts
 - Serve static files and handle RESTful API requests for Authoring, Transformation and Search services.
 
 **Background** 
